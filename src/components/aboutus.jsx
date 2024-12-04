@@ -1,25 +1,105 @@
 import { COLORS } from "@/utils/color";
-import { inter, roboto } from "@/utils/fonts";
+import { inter, roboto, syne } from "@/utils/fonts";
 import { imageurls } from "@/utils/imageurls";
-import { Box, Container, Grid2, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid2,
+  IconButton,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Image from "next/image";
-import React from "react";
-import AnimatedCursor from "react-animated-cursor";
+import { useRouter } from "next/router";
+import RotatingCircle from "./rotatingCircle";
 
 const About = () => {
+  const router = useRouter();
+  const phone = useMediaQuery("(max-width:600px)");
   return (
     <Box sx={{ backgroundColor: COLORS.DARKBLUE, pt: 10, pb: 10 }}>
       <Container maxWidth="lg">
-        <Grid2 container spacing={5} alignItems={"center"}>
-          <Grid2 size={6}>
+        <Grid2 container>
+          <Grid2 size={{ lg: 8, xs: 12 }} margin="auto">
+            <Typography
+              textAlign={"center"}
+              sx={{
+                fontSize: { lg: 70, xs: 40 },
+                color: COLORS.TRANSPARENT,
+                WebkitTextStroke: `2px ${COLORS.WHITE}`,
+                fontFamily: syne.style,
+              }}
+            >
+              We Are Complete Solution For Every Idea
+            </Typography>
+            <Typography
+              textAlign={"center"}
+              sx={{
+                color: COLORS.GREY,
+                mt: 2,
+                fontFamily: syne.style,
+                fontSize: 15,
+              }}
+            >
+              We at TechXGrow are your one-stop shop for transforming concepts
+              into useful solutions. With knowledge of a wide range of
+              technologies, we lead you from idea to completion, enabling your
+              vision with creative thinking, flawless execution, and
+              unrivaled support.
+            </Typography>
+            <Box textAlign={"center"} mt={4} mb={4}>
+              <IconButton
+                onClick={() => router.push("#projects")}
+                sx={{
+                  position: "relative",
+                  width: 150,
+                  height: 150,
+                  border: `1px solid ${COLORS.LIGHTBLUE}`,
+                  overflow: "hidden",
+                  backgroundColor: COLORS.TRANSPARENT,
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: "-100%",
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    backgroundColor: COLORS.HOVERCOLOR,
+                    zIndex: 0,
+                    transition: "top 0.5s ease-in-out",
+                  },
+                  "&:hover::before": {
+                    top: 0,
+                  },
+                  "& .MuiTypography-root": {
+                    position: "relative",
+                    zIndex: 1,
+                    color: COLORS.LIGHTBLUE,
+                    transition: "color 0.5s ease-in-out",
+                  },
+                  "&:hover .MuiTypography-root": {
+                    color: COLORS.WHITE,
+                  },
+                }}
+              >
+                <Typography fontSize={{ lg: 20, xs: 14 }}>
+                  View Projects
+                </Typography>
+              </IconButton>
+            </Box>
+          </Grid2>
+        </Grid2>
+
+        <Grid2 container spacing={5} alignItems={"center"} mt={10}>
+          <Grid2 size={{ lg: 6, xs: 12 }}>
             <Image
               src={imageurls.about}
-              width={500}
-              height={500}
+              width={phone ? 300 : 500}
+              height={phone ? 300 : 500}
               //   className="img-fluid"
             />
           </Grid2>
-          <Grid2 size={6}>
+          <Grid2 size={{ lg: 6, xs: 12 }}>
             <Box
               sx={{
                 border: `1px solid ${COLORS.LIGHTBLUE}`,

@@ -7,6 +7,9 @@ import Services from "@/components/services";
 import About from "@/components/aboutus";
 import InfiniteMarquee from "@/components/infiniteText";
 import Projects from "@/components/projects";
+import Contact from "@/components/contact";
+import RotatingCircle from "@/components/rotatingCircle";
+import { COLORS } from "@/utils/color";
 
 export default function Home() {
   return (
@@ -18,19 +21,34 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box>
-        <HeroSection />
-        <Box sx={{}}>
-          <Services />
-        </Box>
-        <Box sx={{}}>
-          <InfiniteMarquee />
-        </Box>
-        <Box sx={{}}>
+        <div id="home">
+          <HeroSection />
+        </div>
+        <div id="about">
           <About />
+        </div>
+        <Box
+          sx={{
+            backgroundColor: COLORS.DARKBLUE,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <RotatingCircle />
         </Box>
-        <Box sx={{}}>
+        <div id="services">
+          <Services />
+        </div>
+        <div>
+          <InfiniteMarquee />
+        </div>
+        <div id="projects">
           <Projects />
-        </Box>
+        </div>
+        <div id="contact">
+          <Contact />
+        </div>
       </Box>
     </>
   );

@@ -1,10 +1,13 @@
 export const COLORS = {
   BLACK: "#000000",
   WHITE: "#ffffff",
-  GREY: "#333",
+  GREY: "#d7d7d7",
   LIGHTBLUE: "#1EEBB4",
   LIGHTGREY: "#00000060",
   TRANSPARENT: "transparent",
   DARKBLUE: "#07182C",
   HOVERCOLOR: "#0C464E",
+  OVERLAY_BLACK: "#00000080",
+  FOOTERCOLOR: "#2B2F3B",
+  GREENCOLOR:"#0B3241"
 };

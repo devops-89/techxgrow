@@ -35,7 +35,7 @@ const Services = () => {
             sx={{
               fontSize: 40,
               fontFamily: roboto.style,
-              fontWeight: 800,
+              // fontWeight: 800,
               width: 550,
               color: COLORS.WHITE,
               textTransform: "capitalize",
@@ -75,7 +75,7 @@ const Services = () => {
         </Stack>
         <Grid2 container spacing={4}>
           {data.servicesCard.map((val, i) => (
-            <Grid2 size={4}>
+            <Grid2 size={{lg:4,xs:12}}>
               <ServicesCard
                 img={val.img}
                 heading={val.heading}

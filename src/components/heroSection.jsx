@@ -17,6 +17,7 @@ import { data } from "@/assests/data";
 import { Autoplay } from "swiper/modules";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import AnimatedCursor from "react-animated-cursor";
+import { useRouter } from "next/router";
 const HeroSection = () => {
   const sliderRef = useRef();
 
@@ -26,6 +27,8 @@ const HeroSection = () => {
   const prevSlide = () => {
     sliderRef.current.swiper.slidePrev();
   };
+
+  const router = useRouter();
 
   return (
     <div>
@@ -46,7 +49,7 @@ const HeroSection = () => {
       <Box
         sx={{
           backgroundImage: `url(https://techxgrow-bucket.s3.eu-central-1.amazonaws.com/banners/banner1.jpg)`,
-          height: "100vh",
+          height: { lg: "100vh", xs: "80vh" },
           pb: 1,
           backgroundPosition: "center",
           backgroundSize: "cover",
@@ -73,7 +76,7 @@ const HeroSection = () => {
                 <Container maxWidth="lg">
                   <Grid2 container alignItems={"center"} spacing={5}>
                     <Grid2
-                      size={6}
+                      size={{ lg: 6, xs: 12 }}
                       className="animate__animated animate__fadeInLeftBig"
                     >
                       {/* <Subheading
@@ -83,7 +86,7 @@ const HeroSection = () => {
                       /> */}
                       <Typography
                         sx={{
-                          fontSize: 50,
+                          fontSize: { lg: 50, xs: 40 },
                           fontFamily: roboto.style,
                           WebkitTextStroke: "2px  #ffffff",
                           color: "transparent",
@@ -94,7 +97,7 @@ const HeroSection = () => {
                       </Typography>
                       <Typography
                         sx={{
-                          fontSize: 50,
+                          fontSize: { lg: 50, xs: 40 },
                           fontFamily: roboto.style,
                           fontWeight: 500,
                           color: COLORS.WHITE,
@@ -108,7 +111,7 @@ const HeroSection = () => {
                           color: COLORS.WHITE,
                           fontFamily: inter.style,
                           fontWeight: 600,
-                          lineHeight: 1.5,
+                          lineHeight: 2,
                         }}
                       >
                         {val.description}
@@ -131,6 +134,7 @@ const HeroSection = () => {
                           fontFamily: roboto.style,
                           textTransform: "inherit",
                         }}
+                        onClick={() => router.push("#contact")}
                       >
                         Start Now
                       </Button>
